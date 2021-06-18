@@ -1,5 +1,9 @@
 package com.deiva.deiva;
 
+import an.awesome.pipelinr.Pipeline;
+import an.awesome.pipelinr.Pipelinr;
+import com.deiva.deiva.application.commands.Ping;
+import com.deiva.deiva.application.handlers.Pong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.deiva.deiva.infraestructure.repositories.UserRepository;
 import com.deiva.deiva.model.entities.User;
+
+import java.util.stream.Stream;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -33,6 +39,15 @@ public class MainController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers() {
         // This returns a JSON or XML with the users
-        return userRepository.findAll();
+        var a = userRepository.findAll();
+        Pipeline pipeline = new Pipelinr()
+                .with(
+                        () -> Stream.of(new Pong())
+                );
+        var b = new Ping("hola").execute(pipeline);
+        System.out.println("aqui esta la variabale b==================================");
+        System.out.println(b);
+        return a;
+        // return userRepository.findAll();
     }
 }

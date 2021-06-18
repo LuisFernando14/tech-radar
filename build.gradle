@@ -10,14 +10,16 @@ sourceCompatibility = '14'
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compile "org.springframework.boot:spring-boot-starter-security"
 	implementation('io.jsonwebtoken:jjwt:0.2')
 	compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.10.1'
+	compile "org.springframework.boot:spring-boot-starter-security"
+	compile 'an.awesome:pipelinr:0.5'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
