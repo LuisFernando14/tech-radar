@@ -28,11 +28,11 @@ public class MainController {
     }
 
     @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewUser (@Valid @RequestBody AddUserDto addUserDto) {
+    public @ResponseBody String addNewUser (@Valid @RequestBody User user) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        User user = new User();
-        modelMapper.map(addUserDto, user);
+        // User user = new User();
+        // modelMapper.map(addUserDto, user);
         return userService.save(user);
     }
 
