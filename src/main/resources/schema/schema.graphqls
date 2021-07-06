@@ -1,0 +1,16 @@
+type Query {
+    shows(titleFilter: String): [Show]
+    users(titleFilter: String): [User]
+}
+
+type Show {
+    title: String
+    releaseYear: Int
+}
+
+type User {
+    id: Int
+    name: String
+    email: String
+    token: String
+}
