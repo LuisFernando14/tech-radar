@@ -1,4 +1,4 @@
-package com.deiva.deiva.application.commands;
+package com.deiva.deiva.application.queries;
 
 import an.awesome.pipelinr.Command;
 import com.deiva.deiva.infraestructure.Users;

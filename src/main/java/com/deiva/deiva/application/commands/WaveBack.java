@@ -10,5 +10,4 @@ public class WaveBack implements Command.Handler<Wave, String> {
     public String handle(Wave command) {
         return "Aquí andamos jaja";
     }
-    // ...
 }

@@ -23,9 +23,6 @@ public class UsersDataFetcher {
         List<User> list = StreamSupport
                 .stream(response.spliterator(), false)
                 .collect(Collectors.toList());
-        list.forEach((x) -> {
-            System.out.println(x.getName());
-        });
         if(titleFilter == null) {
             return list;
         }
