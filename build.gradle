@@ -11,11 +11,20 @@ sourceCompatibility = '14'
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
+	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
+	implementation "com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter"
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	compile "org.springframework.boot:spring-boot-starter-security"
+	compile 'an.awesome:pipelinr:0.5'
+	compile 'org.modelmapper:modelmapper:2.3.3'
+	implementation('io.jsonwebtoken:jjwt:0.2')
+	compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.10.1'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

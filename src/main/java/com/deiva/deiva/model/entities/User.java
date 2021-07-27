@@ -15,6 +15,16 @@ public class User {
 
     private String email;
 
+    private String token;
+
+    public void setUser(String username) {
+        this.name = username;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -31,11 +41,19 @@ public class User {
         this.name = name;
     }
 
+    public String getToken() {
+        return this.token;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTitle() {
+        return "";
     }
 }
